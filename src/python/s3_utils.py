@@ -11,3 +11,4 @@ def downloadDirectoryFroms3(bucketName, remoteDirectoryName):
 
 
 # downloadDirectoryFroms3('mydatahelps','paraquet_exports/SleepStudy/fitbit_intraday_activities_heart_file')
+# downloadDirectoryFroms3('mydatahelps','paraquet_exports/SleepStudy/healthkitv2samples')
