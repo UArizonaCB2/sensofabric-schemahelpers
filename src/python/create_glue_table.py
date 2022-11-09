@@ -17,7 +17,7 @@ schema_wr = wr._data_types.athena_types_from_pyarrow_schema(schemas[0],partition
 
 
 #to handle map column, athena does not accept space in the map type. 
-# There could be more edge cases here, difficult to predict now.
+# There could be more edge cases here, difficult to predict now. Raised the PR for this change in the awswrangler package https://github.com/aws/aws-sdk-pandas/pull/1753 
 from copy import deepcopy
 final_schema = deepcopy(schema_wr[0])
 for field in final_schema:
