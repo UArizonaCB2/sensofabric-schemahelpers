@@ -1,12 +1,12 @@
 .PHONY: install-deps format create_athena_table
+export PYTHONPATH := $(shell pwd)/src/python:$(PYTHONPATH)
 
 install-deps:
 	python3 -m pip install -r requirements.txt
-	# python3 -m pip install pyarrow==10.0.0
 
 format:
 	python3 -m black src/python
 	python3 -m isort --recursive src/python
 
 create_athena_table:
-	python3 src/python/create_athena_table.py $(path)
+	python3 src/python/athena/create_athena_table.py $(path)

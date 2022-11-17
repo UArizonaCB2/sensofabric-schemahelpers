@@ -6,9 +6,9 @@ import awswrangler as wr
 import pyarrow as pa
 import pyarrow.parquet as pq
 import s3fs
-from athena_table_config import AthenaTable
-from parquet_utils import read_parquet_schema
-from s3_utils import get_s3_file_content, get_s3_file_paths
+from models.athena_table_config import AthenaTable
+from utils.parquet.parquet_utils import read_parquet_schema
+from utils.s3.s3_utils import get_s3_file_content, get_s3_file_paths
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
