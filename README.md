@@ -11,8 +11,7 @@ Content:
   {
     "database": "test_schema_database",
     "name": "test_all_props_partition",
-    "path": "s3://athenatestbucket-4118/exports/test_partition",
-    "parameters": {}
+    "path": "s3://athenatestbucket-4118/exports/test_partition"
   },
   {
     "database": "test_schema_database",

@@ -55,7 +55,7 @@ def create_athena_table(configs):
                 config["name"],
                 database=config["database"],
                 path=config["path"],
-                parameters=config["parameters"],
+                parameters=config.get("parameters"),
             )
             partitions_info = get_partition_info(athena_table.path, fs)
             schema = get_schema(athena_table.path, fs)
@@ -85,21 +85,3 @@ if __name__ == "__main__":
     config_path = sys.argv[1]
     configs = json.loads(get_s3_file_content(config_path))
     create_athena_table(configs)
-
-# e.g.
-# configs = [
-#     {
-#     'database':'test_schema_database',
-#     'name':'test_all_props_partition',
-#     'path':'s3://athenatestbucket-4118/exports/test_partition',
-#     'parameters':{}
-# },{
-#     'database':'test_schema_database',
-#     'name':'test_all_props_new',
-#     'path':'s3://mydatahelps/paraquet_exports/SleepStudy/fitbit_intraday_activities_heart_file/',
-#     'parameters':{
-#         'has_encrypted_data':'true',
-#         'write.compression':'GZIP'
-#     }
-# }
-# ]
