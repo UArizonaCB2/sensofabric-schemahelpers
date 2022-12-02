@@ -4,3 +4,4 @@ awswrangler
 flatsplode
 s3fs
 isort
+autoflake
