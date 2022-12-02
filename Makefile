@@ -6,7 +6,8 @@ install-deps:
 
 format:
 	python3 -m black src/python
-	python3 -m isort --recursive src/python
+	python3 -m autoflake --recursive --in-place --remove-all-unused-imports src/python 
+	python3 -m isort src/python
 
 create_athena_table:
 	python3 src/python/athena/create_athena_table.py $(path)

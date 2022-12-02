@@ -4,6 +4,7 @@ import awswrangler as wr
 def read_from_athena_via_query(query, database):
     return wr.athena.read_sql_query(sql=query, database=database)
 
+
 def write_to_athena(config):
     table_name = config["table_name"]
     path = config["s3_path"]

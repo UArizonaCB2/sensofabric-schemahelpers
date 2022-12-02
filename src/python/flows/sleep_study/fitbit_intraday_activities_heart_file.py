@@ -1,4 +1,3 @@
-import awswrangler as wr
 import pandas as pd
 from athena import athena_ops as ao
 from utils.json import flatten_utils as fu
@@ -74,6 +73,7 @@ def process_data_for_activities_heart_intraday_table(df):
     df = df.drop(["content__activities-heart-intraday__dataset__time"], axis=1)
     return df
 
+
 if __name__ == "__main__":
     df = ao.read_from_athena_via_query(query, DATABASE)
     df = pre_process(df)
@@ -87,7 +87,7 @@ if __name__ == "__main__":
             "partition_columns": ["content__activities-heart__dateTime"],
             "s3_path": "s3://aws-athena-query-results-411877231383-us-east-1/test_flattened_fitbit_activities_heart/",
             "dtype": {"content__activities-heart__dateTime": "date"},
-            "database" : DESTINATION_DATABASE
+            "database": DESTINATION_DATABASE,
         },
         {
             "table_name": "test_flattened_fitbit_activities_heart_intraday",
@@ -95,7 +95,7 @@ if __name__ == "__main__":
             "partition_columns": ["_partition_day"],
             "s3_path": "s3://aws-athena-query-results-411877231383-us-east-1/test_flattened_fitbit_activities_heart_intraday/",
             "dtype": {"_partition_day": "date"},
-            "database" : DESTINATION_DATABASE
+            "database": DESTINATION_DATABASE,
         },
     ]
     for config in configs:
